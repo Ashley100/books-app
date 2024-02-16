@@ -1,0 +1,87 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": ["dist", ".eslintrc"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "@tanstack/query",
+    "import", // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md#groups-array
+    "prettier" // https://prettier.io/docs/en/install.html
+  ],
+  "rules": {
+    // To fix - TypeError: Error while loading rule '@typescript-eslint/comma-dangle': Cannot read property 'ecmaVersion' of undefined.
+    "comma-dangle": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/no-implied-eval": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    //
+    "@typescript-eslint/dot-notation": "off",
+    "@typescript-eslint/no-throw-literal": "off",
+
+    // Off rules
+    "max-len": "off",
+    "no-plusplus": "off",
+    "no-underscore-dangle": "off",
+    "react/prop-types": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-no-bind": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "react/jsx-max-props-per-line": "off",
+
+    // Typescript
+    "@typescript-eslint/default-param-last": "off",
+
+    // Common rules
+    "complexity": ["warn", { "max": 15 }],
+    "object-property-newline": ["error", { "allowMultiplePropertiesPerLine": true }],
+    "import/newline-after-import": "error",
+    "sort-imports": ["error", {
+      "ignoreCase": false,
+      "ignoreDeclarationSort": true,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["single", "multiple", "all", "none"],
+      "allowSeparatedGroups": true
+    }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "": "never",
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/order": ["error", {
+      "newlines-between": "always",
+      "pathGroupsExcludedImportTypes": ["internal"],
+      "groups": [
+        ["builtin", "external"],
+        ["parent", "sibling", "internal", "index"]
+      ]
+    }]
+  }
+}
