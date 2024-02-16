@@ -1,0 +1,29 @@
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.book-card {
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.book-card h3 {
+  margin-top: 0;
+}
+
+.book-card h4 {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  font-size: 14px;
+  line-height: 1.5;
+}

@@ -1,6 +1,6 @@
 import { Outlet, createRootRoute, createRoute } from "@tanstack/react-router";
 
-import { BookDetailsPage } from "./app/library/BookDetailsPage";
+import { BookDetailsPage } from "./app/library/book-details/BookDetailsPage";
 import { BookListPage } from "./app/library/BookListPage";
 import { BooksHomePage } from "./app/library/BooksHomePage";
 import { ErrorPage } from "./components/ErrorPage";
