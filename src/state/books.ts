@@ -1,6 +1,10 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  useMutation,
+  useQueryClient,
+  useSuspenseQuery,
+} from "@tanstack/react-query";
 
-import { MOCK_DB } from "../lib/utils/constants";
+import { sleep } from "../lib/utils/utils";
 import { api } from "./api";
 import { Book } from "./models/book";
 
@@ -11,10 +15,12 @@ const STATE_TYPES = {
 export const useBookList = () => {
   const queryClient = useQueryClient();
 
-  const { data } = useQuery<Book[]>({
+  const { data } = useSuspenseQuery<Book[]>({
     queryKey: [STATE_TYPES.BOOK_LIST],
-    queryFn: () => api.books.getAll(),
-    initialData: MOCK_DB,
+    queryFn: async () => {
+      await sleep(1000);
+      return api.books.getAll();
+    },
   });
 
   const create = (payload: Omit<Book, "id">) => api.books.create(payload);

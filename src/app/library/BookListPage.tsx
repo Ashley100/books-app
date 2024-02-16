@@ -30,12 +30,7 @@ function UpsertBookModal({ book }: { book?: Book }) {
       z.object({
         title: z.string().min(3).max(255),
         author: z.string().min(3).max(255),
-        // publication_year: z.number().min(1).max(255),
-        publication_year: z.coerce
-          .number() // Force it to be a number
-          .int() // Make sure it's an integer
-          .gte(1995) // Greater than or equal to the smallest 5 digit int
-          .lte(2024),
+        publication_year: z.coerce.number().int().gte(1995).lte(2024),
       }),
     ),
     defaultValues: {

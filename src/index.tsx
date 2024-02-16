@@ -1,10 +1,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 
 import "./index.css";
-
+import { RootLoadingState } from "./components/RootLoadingState";
 import { routeTree } from "./routes";
 
 const router = createRouter({
@@ -34,7 +34,9 @@ function App() {
 function AppWrapper() {
   return (
     <QueryClientProvider client={queryClient}>
-      <App />
+      <Suspense fallback={<RootLoadingState />}>
+        <App />
+      </Suspense>
     </QueryClientProvider>
   );
 }
