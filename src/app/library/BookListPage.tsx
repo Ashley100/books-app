@@ -1,5 +1,6 @@
 import "./styles/index.css";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -116,7 +117,9 @@ function BookCard({ book }: { book: Book }) {
         </Modal>
       </ModalProvider>
       <div key={book.id} className="book-card">
-        <h3>{book.title}</h3>
+        <Link to="/books/" params={{ bookId: book.id }}>
+          <h3>{book.title}</h3>
+        </Link>
         <h4>By {book.author}</h4>
         <p>{book.publication_year}</p>
         <Menu items={menuItems} />
