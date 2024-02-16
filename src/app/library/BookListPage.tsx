@@ -117,7 +117,7 @@ function BookCard({ book }: { book: Book }) {
         </Modal>
       </ModalProvider>
       <div key={book.id} className="book-card">
-        <Link to="/books/" params={{ bookId: book.id }}>
+        <Link to="/books/$bookId" params={{ bookId: String(book.id) }}>
           <h3>{book.title}</h3>
         </Link>
         <h4>By {book.author}</h4>

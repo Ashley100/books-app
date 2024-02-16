@@ -50,4 +50,4 @@ const routeTree = rootRoute.addChildren([
   ]),
 ]);
 
-export { routeTree, rootRoute };
+export { routeTree, rootRoute, bookDetailsRoute };

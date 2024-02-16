@@ -1,3 +1,9 @@
+import { BookDetails } from "./BookDetails";
+
 export function BookDetailsPage() {
-  return <p>Details</p>;
+  return (
+    <div className="container">
+      <BookDetails />
+    </div>
+  );
 }
